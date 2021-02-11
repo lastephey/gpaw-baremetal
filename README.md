@@ -7,20 +7,20 @@ Progress towards a bare-metal GPAW build on NERSC's Cori XC40 system.
 GPAW depends on many libraries. We attempt to build them in the following order:
 
 - libxc (`build-libxc.sh`)
-- fftw (`build-fftw.sh` and module load `cray-fftw`)
+- fftw (`build-fftw.sh` or module load `cray-fftw`)
 - libvdwxc (`build-libvdwxc.sh`)
 - elpa (`build-elpa.sh`)
 - ase
 - gpaw (ase/gpaw built together in `build-ase-gpaw.sh`)
 
-Goal: when all parts are working, the script `build-all.sh` can be used to
+**Goal**: when all parts are working, the script `build-all.sh` can be used to
 generate the entire gpaw build, conda environment, and all dependencies.
 
 ## Notes
 
 fftw must be built with mpi support
 
-libvdwc depends on fftw with mpi support
+libvdwxc depends on fftw with mpi support
 
 The ase package has a nonstandard configuration and requires manual additions
 to PATH and PYTHONPATH
