@@ -5,6 +5,8 @@ module load cray-libsci
 module load cray-fftw #try with nersc fftw for now
 module load python
 
+topdir=$(pwd)
+
 #using 3.8 instead of 3.6
 #overwriting existing gpaw env
 conda create --name gpaw python=3.8 pip numpy scipy matplotlib -y --force
@@ -26,7 +28,7 @@ cd $HOME
 rm -rf $HOME/gpaw
 git clone -b 21.1.0 https://gitlab.com/gpaw/gpaw.git
 cd gpaw
-cp $SCRATCH/gpaw-build/siteconfig.py siteconfig.py
+cp $topdir/siteconfig.py siteconfig.py
 
 python setup.py build_ext
 python setup.py install
